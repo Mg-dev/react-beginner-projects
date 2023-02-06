@@ -1,9 +1,12 @@
 import './App.css';
+import Home from './Home'
 import Employee from './Employee';
+
 import GroupedTeamMember from './GroupedTeamMember';
 import Home from './Home';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
+
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link} from 'react-router-dom';
 function App() {
@@ -122,11 +125,13 @@ function App() {
             handleTeamSelectionChange={handleTeamSelectionChange}
             handleEmployeeCardClick={handleEmployeeCardClick}
             />} />
+
             <Route path="/group-team-members"
               element={<GroupedTeamMember setTeam={setTeam}
               employees={employees}
               selectedTeam={selectedTeam}/>} />
             <Route path="/*" element={<NotFound />} />
+
           </Routes>
           
           </>
