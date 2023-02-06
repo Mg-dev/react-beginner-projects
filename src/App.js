@@ -1,7 +1,8 @@
 import './App.css';
+import Home from './Home'
 import Employee from './Employee';
-import Home from './Home';
 import Navbar from './Navbar';
+import Notfound from './Notfound'
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link} from 'react-router-dom';
 function App() {
@@ -121,6 +122,8 @@ function App() {
             handleTeamSelectionChange={handleTeamSelectionChange}
             handleEmployeeCardClick={handleEmployeeCardClick}
             />} />
+             <Route path="*" element={<Notfound/>} />
+
           </Routes>
           
           </>
