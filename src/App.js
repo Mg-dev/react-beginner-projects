@@ -1,12 +1,16 @@
 import './App.css';
 import Home from './Home'
 import Employee from './Employee';
+
+import GroupedTeamMember from './GroupedTeamMember';
+import Home from './Home';
 import Navbar from './Navbar';
-import Notfound from './Notfound'
+import NotFound from './NotFound';
+
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link} from 'react-router-dom';
 function App() {
-  const [selectedTeam, setSelectedTeam]  = useState(JSON.parse(localStorage.getItem('selectedTeam'))||"TeamB")
+  const [selectedTeam, setTeam]  = useState(JSON.parse(localStorage.getItem('selectedTeam'))||"TeamB")
     const [employees, setEmployees] = useState(
       JSON.parse(localStorage.getItem('employees')) ||
         [{
@@ -96,7 +100,7 @@ function App() {
     );
     function handleTeamSelectionChange(e){
         console.log(e.target.value)
-        setSelectedTeam(e.target.value);
+        setTeam(e.target.value);
     }
     function handleEmployeeCardClick(event){
         console.log(event.currentTarget.id)
@@ -113,7 +117,6 @@ function App() {
   return (
           <>
             <Navbar />
-          
             <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/tma-app' element={<Employee 
@@ -122,7 +125,12 @@ function App() {
             handleTeamSelectionChange={handleTeamSelectionChange}
             handleEmployeeCardClick={handleEmployeeCardClick}
             />} />
-             <Route path="*" element={<Notfound/>} />
+
+            <Route path="/group-team-members"
+              element={<GroupedTeamMember setTeam={setTeam}
+              employees={employees}
+              selectedTeam={selectedTeam}/>} />
+            <Route path="/*" element={<NotFound />} />
 
           </Routes>
           

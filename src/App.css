@@ -10,3 +10,17 @@
 .standout{
   box-shadow: 3px 3px 4px black;
 }
+
+@media screen and (max-width: 768px) {
+  .card-collection{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-collection{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
