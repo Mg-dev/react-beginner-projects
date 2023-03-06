@@ -1,12 +1,11 @@
 import './App.css';
-import Home from './Home'
-import Employee from './Employee';
-
-import GroupedTeamMember from './GroupedTeamMember';
 import Home from './Home';
+import Employee from './Employee';
+import GroupedTeamMember from './GroupedTeamMember';
 import Navbar from './Navbar';
-import NotFound from './NotFound';
-
+import NotFound from './Notfound';
+import Env from './Env';
+import Snack from './Snack/Snack';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link} from 'react-router-dom';
 function App() {
@@ -115,7 +114,8 @@ function App() {
       localStorage.setItem('selectedTeam',JSON.stringify(selectedTeam))
     }, [selectedTeam]);
   return (
-          <>
+          <div className="App">
+            
             <Navbar />
             <Routes>
             <Route path='/' element={<Home />} />
@@ -125,7 +125,8 @@ function App() {
             handleTeamSelectionChange={handleTeamSelectionChange}
             handleEmployeeCardClick={handleEmployeeCardClick}
             />} />
-
+            <Route path='/env-test' element={<Env />} />
+            <Route path='/snack-shop' element={<Snack />} />
             <Route path="/group-team-members"
               element={<GroupedTeamMember setTeam={setTeam}
               employees={employees}
@@ -134,7 +135,7 @@ function App() {
 
           </Routes>
           
-          </>
+          </div>
         
         
    

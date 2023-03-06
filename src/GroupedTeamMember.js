@@ -22,13 +22,10 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
     var teamDMembers = employees.filter((employee) => employee.teamName === 'TeamD');
     var teamD = { team: 'TeamD', members: teamDMembers, collapsed: selectedTeam === 'TeamD' ? false : true }
     teams.push(teamD);
-
+    console.log(teams);
     return teams;
 
   }
-
-  console.log(groupTeamMembers())
-  console.log(groupedEmployees)
 
   function handleTeamClick(event) {
     var transformedGroupData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id
